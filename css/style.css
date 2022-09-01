@@ -1,0 +1,1 @@
+:root{--bg_transparent:rgba(255, 255, 255, 0.9)}#recent-posts>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post{background:var(--bg_transparent)}#aside-content .card-widget{background:var(--bg_transparent)}
