@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>JustAuth集成登陆工具</title>
+      <link href="/2023/05/23/Diary/2023/JustAuth%E9%9B%86%E6%88%90%E7%99%BB%E9%99%86%E5%B7%A5%E5%85%B7/"/>
+      <url>/2023/05/23/Diary/2023/JustAuth%E9%9B%86%E6%88%90%E7%99%BB%E9%99%86%E5%B7%A5%E5%85%B7/</url>
+      
+        <content type="html"><![CDATA[<p>JustAuth用于快速集成第三方平台的登录，比如：QQ平台、GitHub平台、微信平台</p><div class="note success simple"><p>开源地址: <a href="https://github.com/justauth/JustAuth">JustAuth</a></p></div><hr><h2 id="OAuth流程"><a href="#OAuth流程" class="headerlink" title="OAuth流程"></a>OAuth流程</h2><p>首先引入三个角色：</p><ul><li>用户A：可以理解成你自己</li><li>网站B：可以理解成 OSChina</li><li>第三方C：可以理解成 Github</li></ul><p>需求：你（用户A）想通过 Github（第三方C） 登录网站B（OSChina）。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">+--------+                               +---------------+</span><br><span class="line">|        |--(A)- Authorization Request -&gt;|   Resource    |</span><br><span class="line">|        |                               |     Owner     |</span><br><span class="line">|        |&lt;-(B)-- Authorization Grant ---|               |</span><br><span class="line">|        |                               +---------------+</span><br><span class="line">|        |</span><br><span class="line">|        |                               +---------------+</span><br><span class="line">|        |--(C)-- Authorization Grant --&gt;| Authorization |</span><br><span class="line">| Client |                               |     Server    |</span><br><span class="line">|        |&lt;-(D)----- Access Token -------|               |</span><br><span class="line">|        |                               +---------------+</span><br><span class="line">|        |</span><br><span class="line">|        |                               +---------------+</span><br><span class="line">|        |--(E)----- Access Token ------&gt;|    Resource   |</span><br><span class="line">|        |                               |     Server    |</span><br><span class="line">|        |&lt;-(F)--- Protected Resource ---|               |</span><br><span class="line">+--------+                               +---------------+</span><br></pre></td></tr></table></figure><p><strong>流程解析</strong></p><ul><li>(A) 用户打开<strong>客户端</strong>以后，<strong>客户端</strong>要求<strong>用户</strong>给予授权。</li><li>(B) <strong>用户</strong>同意给予<strong>客户端</strong>授权。</li><li>(C) <strong>客户端</strong>使用上一步获得的授权，向<strong>认证服务器</strong>申请令牌。</li><li>(D) <strong>认证服务器</strong>对<strong>客户端</strong>进行认证以后，确认无误，同意发放令牌</li><li>(E) <strong>客户端</strong>使用令牌，向<strong>资源服务器</strong>申请获取资源。</li><li>(F) <strong>资源服务器</strong>确认令牌无误，同意向<strong>客户端</strong>开放资源。</li></ul><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://www.justauth.cn/_media/63305215.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>防抖与节流</title>
       <link href="/2023/04/26/Notes/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/"/>
       <url>/2023/04/26/Notes/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/</url>
@@ -71,6 +96,31 @@
         <tags>
             
             <tag> 微服务 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MySQL优化</title>
+      <link href="/2023/03/13/pass/mysql/"/>
+      <url>/2023/03/13/pass/mysql/</url>
+      
+        <content type="html"><![CDATA[<h2 id="定位MySQL慢查询"><a href="#定位MySQL慢查询" class="headerlink" title="定位MySQL慢查询"></a>定位MySQL慢查询</h2><p>MySQL慢查询是指执行时间超过预设阈值（一般是几毫秒）的查询语句。慢查询会造成MySQL服务器的性能下降，并可能导致服务器宕机。一般来说，慢查询的原因主要有以下几个方面：</p><ol><li>没有使用索引：如果查询语句中没有使用索引，那么MySQL就需要进行全表扫描。一般情况下，全表扫描会导致查询速度变得很慢。</li><li>语句结构不合理：有些查询语句的结构不合理，比如使用了不必要的子查询。这样的查询语句的执行速度会变得很慢。</li><li>数据库表设计不合理：如果数据库表设计得不合理，这也会导致查询速度变得很慢。</li><li>服务器资源不足：服务器的资源不足也可能导致MySQL慢查询。如果服务器的内存或磁盘空间不足，那么MySQL的查询速度就会变得很慢。</li></ol><p>定位MySQL的慢查询可以通过以下几个步骤实现：</p><ol><li><p>开启慢查询日志</p><p>将MySQL的慢查询日志打开，可以记录执行时间超过某个阈值的查询语句。可以在MySQL的配置文件中设置慢查询阈值和是否打开慢查询日志：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">slow_query_log <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">long_query_time <span class="operator">=</span> <span class="number">1</span></span><br></pre></td></tr></table></figure></li><li><p>分析慢查询日志</p><p>通过分析慢查询日志，可以找出执行时间较长的SQL语句和执行次数。可以使用MySQL提供的日志分析工具 mysqldumpslow 或 pt-query-digest 对慢查询日志进行分析：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldumpslow <span class="operator">-</span>s c <span class="operator">-</span>t <span class="number">10</span> <span class="operator">/</span>var<span class="operator">/</span>log<span class="operator">/</span>mysql<span class="operator">/</span>slow.log</span><br></pre></td></tr></table></figure></li><li><p>优化查询语句</p><p>通过分析慢查询日志，可以找出哪些查询语句执行时间长或执行次数多，然后对其进行优化。可以使用EXPLAIN命令分析查询语句的执行计划，找出性能瓶颈，例如全表扫描等问题。</p></li><li><p>使用索引</p></li><li><p>缓存查询结果(redis)</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -431,9 +481,9 @@
       
         <tags>
             
-            <tag> 一场自娱自乐的游戏 </tag>
-            
             <tag> 胡言乱语 </tag>
+            
+            <tag> 一场自娱自乐的游戏 </tag>
             
         </tags>
       
