@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Volta 工具链管理器</title>
+      <link href="/2024/05/31/work/Volta%20%E5%B7%A5%E5%85%B7%E9%93%BE%E7%AE%A1%E7%90%86%E5%99%A8/"/>
+      <url>/2024/05/31/work/Volta%20%E5%B7%A5%E5%85%B7%E9%93%BE%E7%AE%A1%E7%90%86%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<p>Volta 是一个 JavaScript 开发工具链的管理器，旨在简化工具的安装和版本控制过程。</p><p>环境隔离：可以为每个项目设置单独版本</p><p>Volta 允许开发者为每个项目独立设置和自动切换 Node.js、npm、Yarn 等工具的版本。当你切换到不同的项目目录时，它会自动使用该项目所指定的工具版本，无需手动调整。</p><h3 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a><strong>Linux安装</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 安装</span><br><span class="line">curl https://fastscript.netlify.app/front/get.volta.sh | bash</span><br><span class="line"></span><br><span class="line"># 重启环境变量</span><br><span class="line">source ~/.bash</span><br><span class="line">## 或者</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure><h3 id="Windows-安装"><a href="#Windows-安装" class="headerlink" title="Windows 安装"></a><strong>Windows 安装</strong></h3><p>对于 Windows，<a href="https://github.com/volta-cli/volta">下载并运行 Windows 安装程序</a>并按照说明操作。</p><p>提示</p><p>Volta 的功能依赖于创建符号链接，所以你必须:</p><ul><li>启用<a href="https://learn.microsoft.com/zh-cn/windows/apps/get-started/enable-your-device-for-development#accessing-settings-for-developers">开发者模式</a>(推荐)</li><li>以提升的权限运行 Volta(不推荐)</li></ul><h3 id="安装全局版本"><a href="#安装全局版本" class="headerlink" title="安装全局版本"></a><strong>安装全局版本</strong></h3><p>volta install <a href="mailto:&#110;&#111;&#x64;&#101;&#x40;&#49;&#56;&#46;&#50;&#48;&#x2e;&#x33;">&#110;&#111;&#x64;&#101;&#x40;&#49;&#56;&#46;&#50;&#48;&#x2e;&#x33;</a></p><p>如果系统已经有了默认的node版本，则可以不安装。</p><p>注意：安装后Volta不支持取消全局版本，每个版本安装的环境不相容（只能手动修改）</p><h3 id="安装局部版本"><a href="#安装局部版本" class="headerlink" title="安装局部版本"></a><strong>安装局部版本</strong></h3><p>在项目内安装</p><p>volta pin <a href="mailto:&#x6e;&#111;&#x64;&#x65;&#64;&#x31;&#56;&#x2e;&#50;&#x30;&#x2e;&#51;">&#x6e;&#111;&#x64;&#x65;&#64;&#x31;&#56;&#x2e;&#50;&#x30;&#x2e;&#51;</a></p><p>执行上述命令会在<code>package.json</code>中创建版本信息记录，如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;volta&quot;: &#123;</span><br><span class="line">  &quot;node&quot;: &quot;18.20.3&quot;,</span><br><span class="line">  &quot;yarn&quot;: &quot;1.22.22&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="其他常用命令"><a href="#其他常用命令" class="headerlink" title="其他常用命令"></a><strong>其他常用命令</strong></h3><ul><li>列出已安装的版本：（node）</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volta list node</span><br></pre></td></tr></table></figure><p>卸载指定版本：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1volta uninstall node@14.17.0</span><br></pre></td></tr></table></figure><ul><li>缓存工具到本地以供离线使用</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volta fetch</span><br></pre></td></tr></table></figure><ul><li>更新Volta</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volta upgrade</span><br></pre></td></tr></table></figure><ul><li>查看当前 Volta 设置的默认版本</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volta ls</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工作记录 </tag>
+            
+            <tag> Node </tag>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue动态渲染问题</title>
       <link href="/2024/03/01/Notes/vue%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93%E9%97%AE%E9%A2%98/"/>
       <url>/2024/03/01/Notes/vue%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93%E9%97%AE%E9%A2%98/</url>
@@ -20,9 +49,9 @@
       
         <tags>
             
-            <tag> vue </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> vue </tag>
             
         </tags>
       
@@ -47,9 +76,9 @@
       
         <tags>
             
-            <tag> vue </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> vue </tag>
             
         </tags>
       
@@ -664,9 +693,9 @@
       
         <tags>
             
-            <tag> 一场自娱自乐的游戏 </tag>
-            
             <tag> 胡言乱语 </tag>
+            
+            <tag> 一场自娱自乐的游戏 </tag>
             
         </tags>
       
